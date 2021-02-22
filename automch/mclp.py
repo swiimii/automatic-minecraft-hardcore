@@ -14,13 +14,14 @@ def follow(thefile):
             continue
         yield line
 
-path = open('logs/latest.log')
+
 while(True):
+    path = open('logs/latest.log')
     for line in follow(path):
         if deathregex.match(line):
             restart_server()
             break
-    time.sleep(5)
+    time.sleep(.1)
 
 def restart_server():
     # os.system(r"kill -9 ps aux | grep -i java | grep -v grep | awk '{print $2}'")
@@ -28,4 +29,5 @@ def restart_server():
     # os.system(r"rm -r ./logs")
     # os.system(r"java -Xmx1024M -Xms1024M -jar server.jar nogui")
     print("MUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\n")
+    time.sleep(5)
 
