@@ -3,12 +3,12 @@ import re, datetime, operator, os, time
 from deathcauses import causes as deathcauseslist
 
 def restart_server():
-    # os.system(r"kill -9 ps aux | grep -i java | grep -v grep | awk '{print $2}'")
-    # os.system(r"rm -r ./world")
-    # os.system(r"rm -r ./logs")
-    # os.system(r"java -Xmx1024M -Xms1024M -jar server.jar nogui")
-    print("MUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\n")
-    time.sleep(5)
+    os.system(r"kill -9 ps aux | grep -i java | grep -v grep | awk '{print $2}'")
+    os.system(r"rm -r ./world")
+    os.system(r"rm -r ./logs")
+    os.system(r"java -Xmx1024M -Xms1024M -jar server.jar nogui &")
+    # print("MUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\n")
+    time.sleep(60)
 
 deathsListRegString = r'^\[([0-2][0-9]):([0-9]{2}):([0-9]{2})\] \[Server thread/INFO\]: ('+'|'.join(deathcauseslist)+')'
 deathregex = re.compile(deathsListRegString)
