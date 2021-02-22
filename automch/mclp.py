@@ -10,7 +10,7 @@ def restart_server():
     print("MUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\nMUCH DEAD VERY WOW\n")
     time.sleep(5)
 
-deathsListRegString = r'^\[([0-2][0-9]):([0-9]{2}):([0-9]{2})\] \[Server Thread/INFO\]: ('+'|'.join(deathcauseslist)+')'
+deathsListRegString = r'^\[([0-2][0-9]):([0-9]{2}):([0-9]{2})\] \[Server thread/INFO\]: ('+'|'.join(deathcauseslist)+')'
 deathregex = re.compile(deathsListRegString)
 # Read log file as it's being written. Thanks stackoverflow
 def follow(thefile):
@@ -21,7 +21,6 @@ def follow(thefile):
             time.sleep(0.1) # Sleep briefly
             continue
         yield line
-list
 
 while(True):
     path = open('./logs/latest.log')
