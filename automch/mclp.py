@@ -3,6 +3,7 @@ import re, datetime, operator, os, time
 from deathcauses import causes as deathcauseslist
 
 def restart_server():
+    print("Player death detected. Annihilating server.")
     os.system(r"kill -9 $(ps aux | grep -i java | grep -v grep | awk '{print $2}')")
     os.system(r"rm -r ./world")
     os.system(r"rm -r ./logs")
@@ -26,7 +27,7 @@ def follow(thefile, position):
 while(True):
     path = open('./logs/latest.log')
     for line in follow(path, position):
-        print(line)
+        # print(line)
         if deathregex.search(line):
             restart_server()
             break
