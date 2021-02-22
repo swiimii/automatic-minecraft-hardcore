@@ -13,8 +13,9 @@ def restart_server():
 deathsListRegString = r'^\[([0-2][0-9]):([0-9]{2}):([0-9]{2})\] \[Server thread/INFO\]: ('+'|'.join(deathcauseslist)+')'
 deathregex = re.compile(deathsListRegString)
 # Read log file as it's being written. Thanks stackoverflow
-def follow(thefile):
-    thefile.seek(0,2) # Go to the end of the file
+position = 0
+def follow(thefile, position):
+    thefile.seek(position) # Go to the end of the file
     while True:
         line = thefile.readline()
         if not line:
@@ -24,7 +25,7 @@ def follow(thefile):
 
 while(True):
     path = open('./logs/latest.log')
-    for line in follow(path):
+    for line in follow(path, position):
         print(line)
         if deathregex.search(line):
             restart_server()
