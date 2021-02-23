@@ -1,5 +1,6 @@
 # Automatic Minecraft Hardcore
 =====================
+
 This is a simple tool for running automated Hardcore Minecraft Multiplayer servers.
 
 Whenever someone dies in the game, the server restarts, the old world is deleted, and a new world is generated.
