@@ -1,29 +1,19 @@
-Minecraft Log Parser
+# Automatic Minecraft Hardcore
 =====================
-MCLP is a simple Python script that can generate statistics about a Minecraft server based on it's `server.log` file.
+This is a simple tool for running automated Hardcore Minecraft Multiplayer servers.
 
-![MCLP in action](http://i.imgur.com/dweVw.png)
-
-## Current Features
- * Calculates total time played for each player.
-
-As you can see, the feature list is pretty slim right now. The good news is I have some:
-
-## Planned Features
- * Generate death counts
- * Calculate total play times based on how long it's been since they first joined the server (balancing old players vs new players, basically)
- * Generate an HTML summary, since the CLI is no fun to work with.
- * Server errors
-
-I'm open to suggestions. If you have an idea for a statistic that could be generated feel free to suggest it in the issue tracker. If you're feeling extra generous, you could always implement a feature on your own and submit a pull request!
+Whenever someone dies in the game, the server restarts, the old world is deleted, and a new world is generated.
 
 ## Installation/Usage
-I tried to make using MCLP as easy as possible. As long as you have `pip` installed, usage is as simple as:
+For use with Linux-based Minecraft servers.
 
-	pip install mclp
-    mclp /path/to/server.log
+Installation:
+ - After installing the repo, place your preferred server.jar within the repo.
+ - For the first run, use `bash -c "java -Xmx1024M -Xms1024M -jar server.jar nogui &" && python3 automch/mclp.py`
+ - After following first-run instructions given by server.jar, use ./start-server.jar
+   - If you run into issues here, try `chmod +x ./start-server.jar && chmod +x ./kill-server.jar`
+ - Your server is running! 
 
-Then you should see some neat statistics show up!
+## **Warning**
+As described, once someone dies in your world running with this tool, *that world will be deleted*.
 
-## License
-Minecraft Log Parser is released under the [MIT License](http://opensource.org/licenses/MIT). Have fun and make awesome things with it!
