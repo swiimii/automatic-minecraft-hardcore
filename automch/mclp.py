@@ -29,6 +29,7 @@ while(True):
     for line in follow(path, position):
         # print(line)
         if deathregex.search(line):
+            path.close()
             restart_server()
             break
     time.sleep(.1)
