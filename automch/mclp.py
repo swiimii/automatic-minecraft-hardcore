@@ -24,11 +24,15 @@ def follow(thefile, position):
         yield line
 
 while(True):
+    foundDeath = False
     path = open('./logs/latest.log')
     for line in follow(path, position):
         # print(line)
         if deathregex.search(line):
+            foundDeath = True
             path.close()
             restart_server()
             break
+    if not foundDeath:
+        path.close()
     time.sleep(.1)
